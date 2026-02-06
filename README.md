@@ -22,6 +22,7 @@ Antes de executar o projeto, certifique-se de ter as seguintes dependências ins
 
     https://dotnet.microsoft.com/pt-br/download
 
+- MySQL: A aplicação usa um banco de dados MySQL para persistência de dados de usuários e cadastros.
 ## Como executar o projeto
 
 Siga as etapas abaixo para executar o projeto em sua máquina local:
@@ -33,7 +34,7 @@ Execute os seguintes comandos a partir da pasta raiz do projeto:
 ### Clone este repositório
 
 ```bash
-git clone https://github.com/Tiaguinho2002/Fitness-Store.git](https://github.com/Tiaguinho2002/Fitness-Store.git)
+git clone https://github.com/Tiaguinho2002/Fitness-Store.git
 ```
 
 Este link pode ser encontrado no botão verde acima `Code`.
@@ -127,6 +128,4 @@ Este projeto está sob licença. Consulte [LICENSE](LICENSE.md) para obter mais 
 
 ## Voltar ao topo
 
-[⬆ Voltar ao topo](# Fitness Store)
-
-
+[⬆ Voltar ao topo](#fitness-store)

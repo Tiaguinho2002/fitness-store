@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './index.scss';
-import { FcGoogle } from "react-icons/fc";
-import { useAuth } from '../../context/AuthContext'; 
-import { User } from '../../context/AuthContext'; 
+import { useAuth } from '../../context/AuthContext';
+import { User } from '../../context/AuthContext';
 
 async function registerUser(email: string, password: string): Promise<User> {
   try {
@@ -18,12 +17,12 @@ async function registerUser(email: string, password: string): Promise<User> {
     if (response.ok) {
       const data = await response.json();
       console.log('User registered successfully:', data);
-      
-      const user: User = { 
-        id: data.id, 
-        email: data.email, 
-        name: data.email.split('@')[0], 
-        token: data.token, 
+
+      const user: User = {
+        id: data.id,
+        email: data.email,
+        name: data.email.split('@')[0],
+        token: data.token,
       };
       return user;
     } else {
@@ -50,12 +49,12 @@ async function loginUser(email: string, password: string): Promise<User> {
     if (response.ok) {
       const data = await response.json();
       console.log('User logged in successfully:', data);
-  
-      const user: User = { 
-        id: data.id, 
-        email: data.email, 
-        name: data.email.split('@')[0], 
-        token: data.token, 
+
+      const user: User = {
+        id: data.id,
+        email: data.email,
+        name: data.email.split('@')[0],
+        token: data.token,
       };
       return user;
     } else {
@@ -74,17 +73,17 @@ const Login = () => {
   const [loginPassword, setLoginPassword] = useState('');
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
-  
+
   const navigate = useNavigate();
-  const { login } = useAuth(); 
+  const { login } = useAuth();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const userData = await loginUser(loginEmail, loginPassword);
-      login(userData); 
+      login(userData);
       alert('Login bem-sucedido!');
-      navigate('/'); 
+      navigate('/');
     } catch (error) {
       alert('Falha no login');
     }
@@ -94,9 +93,9 @@ const Login = () => {
     e.preventDefault();
     try {
       const userData = await registerUser(registerEmail, registerPassword);
-      login(userData); 
+      login(userData);
       alert('Registro bem-sucedido! Por favor, faça login.');
-      navigate('/'); 
+      navigate('/');
     } catch (error) {
       alert('Falha no registro');
     }
@@ -111,7 +110,7 @@ const Login = () => {
         <form onSubmit={handleLogin}>
           <div className="form-group">
             <label htmlFor="login-email">E-mail:</label>
-            <input 
+            <input
               type="email"
               id="login-email"
               name="loginEmail"
@@ -123,7 +122,7 @@ const Login = () => {
           </div>
           <div className="form-group">
             <label htmlFor="login-password">Senha:</label>
-            <input 
+            <input
               type="password"
               id="login-password"
               name="loginPassword"
@@ -139,10 +138,6 @@ const Login = () => {
           <i className="fa-solid fa-lock"></i>{' '}
           <a href="#">Esqueceu a senha ou precisa criar?</a>
         </div>
-        <button type="button" className="btn-google-login">
-          <FcGoogle />
-          Fazer Login com o Google
-        </button>
       </div>
 
       <div className="register-box">
@@ -176,10 +171,6 @@ const Login = () => {
           </div>
           <button type="submit" className="btn-cadastrar">Cadastrar</button>
         </form>
-        <button type="button" className="btn-google-login" >
-          <FcGoogle />
-          Continuar com o Google
-        </button>
       </div>
     </div>
   );

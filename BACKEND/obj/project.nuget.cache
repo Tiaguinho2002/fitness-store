@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7N2b748Wa0c=",
+  "dgSpecHash": "lM9yr373I88=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Tiago\\Desktop\\Projetos\\projeto-fitness-store\\BACKEND\\SmartSystem.csproj",
+  "projectFilePath": "C:\\Users\\Tiago\\Fitness-Store\\backend\\SmartSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tiago\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Tiago\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c3295be1ac992fca3d7b766f1f40638e49c56d9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e393dcf4148669bbac210640426622667010956")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
