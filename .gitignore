@@ -3,3 +3,28 @@ node_modules
 .vscode
 yarn.lock
 .env
+
+# Arquivos de Build e Binários
+[Bb]in/
+[Oo]bj/
+
+# Arquivos do Visual Studio
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+
+# Arquivos do VS Code
+.vscode/
+
+# Pacotes NuGet
+*.nupkg
+# Pasta de pacotes (caso use o modo antigo)
+packages/
+
+# Arquivos de Log
+*.log
+
+# Arquivos de Configuração Local (Sensíveis)
+appsettings.Development.json
+appsettings.Local.json
