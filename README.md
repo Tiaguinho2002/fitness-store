@@ -22,7 +22,6 @@ Antes de executar o projeto, certifique-se de ter as seguintes dependências ins
 
     https://dotnet.microsoft.com/pt-br/download
 
-=======
 - MySQL: A aplicação usa um banco de dados MySQL para persistência de dados de usuários e cadastros.
 
     https://www.mysql.com/downloads/
