@@ -26,7 +26,6 @@ Antes de executar o projeto, certifique-se de ter as seguintes dependências ins
 
     https://www.mysql.com/downloads/
 
->>>>>>> e5c2f613bc5aa8efada62c37b8e293fecee8b34d
 ## Como executar o projeto
 
 Siga as etapas abaixo para executar o projeto em sua máquina local:
