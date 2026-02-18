@@ -1,5 +1,5 @@
 import './global.css';
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from './components/Header/Header';
 import Content from './components/Content/Content';
 import Footer from './components/Footer/Footer';
@@ -15,31 +15,17 @@ import Creatina from './pages/Creatina';
 import PreTreino from './pages/PreTreino';
 import Glutamina from './pages/Glutamina';
 import Hipercalorico from './pages/Hipercalorico';
-import Objetivos from './pages/Objetivos';
+
 
 import Provider from './context/Provider';
-import AuthProvider from './context/AuthProvider'; 
-import { useEffect } from 'react';
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 0); 
-
-    return () => clearTimeout(timer);
-  }, [pathname]);
-
-  return null;
-}
+import AuthProvider from './context/AuthProvider';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop />
       <AuthProvider>
+        <ScrollToTop />
         <Provider>
           <Header />
           <NavBar />
@@ -51,8 +37,6 @@ function App() {
               <Route path="/preTreino" element={<PreTreino />} />
               <Route path="/Glutamina" element={<Glutamina />} />
               <Route path="/Hipercalorico" element={<Hipercalorico />} />
-              <Route path="/Objetivos" element={<Objetivos />} />
-
               <Route path="/Login" element={<Login />} />
               <Route path="/Carrinho" element={<PageCart />} />
               <Route path="/FinalizarCompra" element={<FinalizarCompra />} />

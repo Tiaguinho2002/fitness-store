@@ -84,8 +84,8 @@ const handleCheckout = async () => {
 
             if (response.ok) {
                 const savedClient = await response.json();
-                console.log('Cliente salvo com sucesso:', savedClient);
-                alert('Cliente salvo com sucesso!');
+                console.log('Endereço salvo com sucesso:', savedClient);
+                alert('Endereço salvo com sucesso!');
 
                 await handleCheckout();
 

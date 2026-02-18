@@ -36,11 +36,7 @@ function NavBar() {
                     <span className='list-color'>Hipercalórico</span>
                 </Link>
             </li>
-            <li>
-                <Link to="/Objetivos">
-                    <span className='list-color'>Objetivos</span>
-                </Link>
-            </li>
+
         </ul>
     )
 }

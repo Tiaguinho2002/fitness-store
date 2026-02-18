@@ -103,8 +103,6 @@ function Header() {
             navigate('/preTreino');
         } else if (searchLower.includes('glutamina')) {
             navigate('/Glutamina');
-        } else if (searchLower.includes('objetivo') || searchLower.includes('objetivos')) {
-            navigate('/Objetivos');
         } else {
             alert('Produto não encontrado. Por favor, tente novamente.');
         }
@@ -153,14 +151,14 @@ function Header() {
 
                 <div className='cliente'>
                     <div className='Fale-conosco-two'>
-                        <a className='Cell-phone' href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">
+                        <a className='Cell-phone' href="https://wa.me/5511962895094" target="_blank" rel="noopener noreferrer">
                             <BsFillTelephoneFill />
                         </a>
 
                         <div className='Fale-conosco'>
                             <span className='span-title'>Fale conosco</span>
                             <div>
-                                <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">Clique aqui</a>
+                                <a href="https://wa.me/5511962895094" target="_blank" rel="noopener noreferrer">Clique aqui</a>
                             </div>
                         </div>
                     </div>
@@ -209,7 +207,7 @@ function Header() {
                             </Link>
 
                             <div className='Fale-conosco-hamburger' onClick={handleLinkClick}>
-                                <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" className='Fale conosco-hamburguer-two'>
+                                <a href="https://wa.me/5511962895094" target="_blank" rel="noopener noreferrer" className='Fale conosco-hamburguer-two'>
                                     Fale Conosco
                                 </a>
                             </div>
@@ -229,9 +227,6 @@ function Header() {
                         </Link>
                         <Link to='/Glutamina' onClick={handleLinkClick}>
                             <li><a href="#">Glutamina</a></li>
-                        </Link>
-                        <Link to='/Objetivos' onClick={handleLinkClick}>
-                            <li><a href="#">Objetivos</a></li>
                         </Link>
                     </ul>
                 </nav>

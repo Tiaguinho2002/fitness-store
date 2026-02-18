@@ -92,7 +92,7 @@ img:hover {
       @media (max-width: 900px) { @content; }
     }
     @elseif $point == large {
-      @media (max-width: 1200px) { @content; }
+      @media (max-width: 1550px) { @content; }
     }
   }
   
@@ -100,6 +100,37 @@ img:hover {
 @include breakpoint(large) {
     .btn-comprar {
         opacity: 1;
+    }
+
+    .container-product {
+        img {
+            margin-left: 1rem;
+            width: 220px;
+            height: 220px;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            text-align: center;
+            max-width: 100%;
+            padding-top: 0.5rem;
+            margin-right: 3rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-left: 0;
+            text-align: center;
+        }
+
+        button {
+            width: 80%;
+            height: 40px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            margin-left: .4rem;
+        }
     }
 }
 
@@ -150,8 +181,8 @@ img:hover {
 @include breakpoint(small)  {
     
     .product{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 0.8rem;
         justify-items: center;
         padding: 0 1rem;
@@ -162,6 +193,7 @@ img:hover {
             height: 28px;
             font-size: 0.65rem;
             margin-bottom: 1.5rem;
+            margin-left: 1.1rem;
         }
     }
 
@@ -169,10 +201,10 @@ img:hover {
         margin-left: 0;
 
         img {
-            margin-left: 0;
-            width: 80px;
-            height: 80px;
-            margin-bottom: 1.4rem;
+            margin-left: 7rem;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1rem;
         }
 
         h2 {

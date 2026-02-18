@@ -10,11 +10,11 @@ function Footer() {
                     <div className='footer-section Categorias'>
                         <span className='section-title'>Categorias</span>
                         <ul className='category-list'>
-                            <Link to='/WheyProtein'><li><a href="#">Whey Protein</a></li></Link>
-                        <Link to='/Creatina'><li><a href="#">Creatina</a></li></Link>
-                        <Link to='/preTreino'><li><a href="#">Pré-Treino</a></li></Link>
-                        <Link to='/Glutamina'><li><a href="#">Glutamina</a></li></Link>
-                        <Link to='/Objetivos'><li><a href="#">Objetivos</a></li></Link>
+                        <Link to='/'><a href="#">Home</a></Link>
+                        <Link to='/WheyProtein'><a href="#">Whey Protein</a></Link>
+                        <Link to='/Creatina'><a href="#">Creatina</a></Link>
+                        <Link to='/preTreino'><a href="#">Pré-Treino</a></Link>
+                        <Link to='/Glutamina'><a href="#">Glutamina</a></Link>
                         </ul>
                     </div>
 
@@ -39,14 +39,13 @@ function Footer() {
                     <div className='footer-section Fale-Conosco'>
                         <span className='section-title'>Fale Conosco</span>
                         <ul className='contact-list'>
-                            <li> Telefone: (11) 91234-4567</li>
-                            <li> Whatsapp: (11) 91234-4567</li>
+                            <li> Telefone: (11) 96289-5094</li>
+                            <li> Whatsapp: (11) 96289-5094</li>
                             <li> Email: sac@stnutrition.com.br</li>
                         </ul>
                         <span className='schedule-title'>Horário de atendimento:</span>
                         <p className='schedule-text'>
                             Segunda a sexta-feira: 9:00 às 18:00hrs <br /> 
-                            Sábado: 09:00 às 13:00hrs
                         </p>
                     </div>
                 </div>
