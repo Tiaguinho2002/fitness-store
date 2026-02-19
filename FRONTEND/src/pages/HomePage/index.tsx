@@ -15,9 +15,26 @@ function HomePage() {
       <Banner />
       <h1 className='Preferidos-name'>Preferidos</h1>
       <div className='corpo'>
-        <img className='preferido-one' src={minhasImagems} alt="Creatina" />
-        <img className='preferido-two' src={imgs} alt="Whey-protein" />
-        <img className='preferido-tree' src={imagens} alt="pré-treino" />
+        <div className='preferido-card'>
+          <img src={minhasImagems} alt="Creatina" />
+          <div className='overlay'>
+            <span>Creatina</span>
+          </div>
+        </div>
+
+        <div className='preferido-card'>
+          <img src={imgs} alt="Whey-protein" />
+          <div className='overlay'>
+            <span>Whey Protein</span>
+          </div>
+        </div>
+
+        <div className='preferido-card'>
+          <img src={imagens} alt="Pré-treino" />
+          <div className='overlay'>
+            <span>Pré-Treino</span>
+          </div>
+        </div>
       </div>
       <Products />
     </>

@@ -18,64 +18,110 @@
     margin: 3rem 0 2rem 0;
     font-size: 2rem;
   }
-
-  h2 {
-    text-align: center;
-    font-size: 1.3rem;
-    color: rgb(75, 73, 73);
-    margin-top: 1rem;
-  }
-
-  p {
-    color: green;
-    font-weight: 800;
-    font-size: 1.4rem;
-    text-align: center;
-    margin-bottom: 0.5rem;
-  }
-
-  img {
-    width: 220px;
-    height: 220px;
-    transition: transform 0.2s ease;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-  }
-
-  img:hover {
-    transform: scale(1.05);
-  }
 }
 
+// grid de produtos
 .product {
   width: 100%;
   max-width: 1400px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 2.5rem;
   justify-items: center;
 }
 
+
+.product > * {
+  background: white;
+  padding: 1.5rem 1rem 2rem 1rem;
+  border-radius: 18px;
+  text-align: center;
+  width: 100%;
+  max-width: 280px;
+  transition: all 0.35s cubic-bezier(.4,0,.2,1);
+
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.06),
+    0 3px 8px rgba(0, 0, 0, 0.04);
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* overlay suave no hover */
+.product > *::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.02),
+    rgba(0,0,0,0.04)
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+/* HOVER CARD */
+.product > *:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 25px 45px rgba(0, 0, 0, 0.15),
+    0 12px 20px rgba(0, 0, 0, 0.10);
+}
+
+.product > *:hover::before {
+  opacity: 1;
+}
+
+.container-product img {
+  width: 200px;
+  height: 200px;
+  border-radius: 16px;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+}
+
+.product > *:hover img {
+  transform: scale(1.06);
+}
+
+.container-product h2 {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: rgb(70, 70, 70);
+}
+
+.container-product p {
+  color: green;
+  font-weight: 800;
+  font-size: 1.3rem;
+  margin: 0.6rem 0 1rem 0;
+}
+
 .btn-comprar {
-  width: 80%;
-  height: 45px;
-  border-radius: 5px;
-  background-color: green;
-  text-transform: uppercase;
+  width: 100%;
+  height: 42px;
+  border-radius: 8px;
+  background: black;
   color: white;
-  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  margin-bottom: 2rem;
-  transition: 0.2s;
+  border: none;
+  transition: all 0.3s ease;
 }
 
-.btn-comprar:hover {
+.product > *:hover .btn-comprar {
+  background: green;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 14px rgba(0, 128, 0, 0.3);
 }
 
-/* =======================
+/* ==============================
    BREAKPOINT MIXIN
-======================= */
+================================ */
 
 @mixin breakpoint($point) {
   @if $point == small {
@@ -89,64 +135,26 @@
   }
 }
 
-/* =======================
-   LARGE (até 1550px)
-======================= */
-
 @include breakpoint(large) {
   .product {
     grid-template-columns: repeat(4, 1fr);
   }
-
-  .container-product img {
-    width: 200px;
-    height: 200px;
-  }
 }
-
-/* =======================
-   MEDIUM (até 900px)
-======================= */
 
 @include breakpoint(medium) {
   .product {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
   }
 
-  .container-product {
-    h1 {
-      font-size: 1.6rem;
-    }
-
-    img {
-      width: 160px;
-      height: 160px;
-    }
-
-    h2 {
-      font-size: 1rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-    }
-  }
-
-  .btn-comprar {
-    height: 38px;
-    font-size: 0.85rem;
+  .container-product img {
+    width: 170px;
+    height: 170px;
   }
 }
-
-/* =======================
-   SMALL (até 600px)
-======================= */
 
 @include breakpoint(small) {
   .product {
     grid-template-columns: 1fr;
-    gap: 1rem;
   }
 
   .container-product {
@@ -154,25 +162,11 @@
 
     h1 {
       font-size: 1.4rem;
-      margin: 2rem 0 1.5rem 0;
-    }
-
-    img {
-      width: 140px;
-      height: 140px;
-    }
-
-    h2 {
-      font-size: 0.9rem;
-    }
-
-    p {
-      font-size: 1rem;
     }
   }
 
-  .btn-comprar {
-    height: 32px;
-    font-size: 0.75rem;
+  .container-product img {
+    width: 150px;
+    height: 150px;
   }
 }
