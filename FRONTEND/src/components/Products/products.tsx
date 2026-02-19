@@ -1,7 +1,6 @@
-import './products.scss'
+import './products.scss';
 
-import ProductsCard from '../ProductsCard/productCard'
-
+import ProductsCard from '../ProductsCard/productCard';
 import { creatina } from '../../utils/products/creatina.json'
 import { wheyProtein } from '../../utils/products/wheyProtein.json'
 import { preTreino } from '../../utils/products/preTreino.json'
@@ -10,118 +9,68 @@ import { hipercalorico } from '../../utils/products/hipercalorico.json'
 
 function Products() {
   return (
-    <section className="products-section">
-
-      <div className="products-container">
-
-        <div className="category">
-          <div className="section-header">
-            <h2 className="section-title">Whey Protein</h2>
-            <p className="section-subtitle">
-              Alta concentração proteica para máximo desempenho
-            </p>
-          </div>
-
-          <div className="products-grid">
+    <section>
+      <div className='container-product'>
+        <div>
+          <h1>Whey Protein</h1>
+          <p className="section-subtitle">
+            Proteína de alta absorção para máxima construção e recuperação muscular.
+          </p>
+          <div className='product'>
             {wheyProtein.map((item) => (
-              <ProductsCard
-                key={item.id}
-                title={item.name}
-                price={item.price}
-                id={item.id}
-                image={item.image}
-              />
+              <ProductsCard key={item.id} title={item.name} price={item.price} id={item.id} image={item.image} />
             ))}
           </div>
         </div>
-
-        <div className="category">
-          <div className="section-header">
-            <h2 className="section-title">Creatina Pure</h2>
-            <p className="section-subtitle">
-              Explosão de força e recuperação muscular
-            </p>
-          </div>
-
-          <div className="products-grid">
+        <div>
+          <h1>Creatina Pure</h1>
+          <p className="section-subtitle">
+            Aumente sua força, explosão e volume muscular com pureza garantida.
+          </p>
+          <div className='product'>
             {creatina.map((item) => (
-              <ProductsCard
-                key={item.id}
-                title={item.name}
-                price={item.price}
-                id={item.id}
-                image={item.image}
-              />
+              <ProductsCard key={item.id} title={item.name} price={item.price} id={item.id} image={item.image} />
             ))}
           </div>
         </div>
-
-        <div className="category">
-          <div className="section-header">
-            <h2 className="section-title">Pré-Treino</h2>
-            <p className="section-subtitle">
-              Energia intensa e foco absoluto
-            </p>
-          </div>
-
-          <div className="products-grid">
+        <div>
+          <h1>Pré-Treino</h1>
+          <p className="section-subtitle">
+            Energia explosiva e foco total para transformar cada repetição em resultado.
+          </p>
+          <div className='product'>
             {preTreino.map((item) => (
-              <ProductsCard
-                key={item.id}
-                title={item.name}
-                price={item.price}
-                id={item.id}
-                image={item.image}
-              />
+              <ProductsCard key={item.id} title={item.name} price={item.price} id={item.id} image={item.image} />
             ))}
           </div>
         </div>
 
-        <div className="category">
-          <div className="section-header">
-            <h2 className="section-title">Glutamina</h2>
-            <p className="section-subtitle">
-              Recuperação muscular acelerada
-            </p>
-          </div>
-
-          <div className="products-grid">
+        <div>
+          <h1>Glutamina</h1>
+          <p className="section-subtitle">
+            Recuperação avançada e proteção imunológica para manter o ritmo dos treinos.
+          </p>
+          <div className='product'>
             {glutamina.map((item) => (
-              <ProductsCard
-                key={item.id}
-                title={item.name}
-                price={item.price}
-                id={item.id}
-                image={item.image}
-              />
+              <ProductsCard key={item.id} title={item.name} price={item.price} id={item.id} image={item.image} />
             ))}
           </div>
         </div>
 
-        <div className="category">
-          <div className="section-header">
-            <h2 className="section-title">Hipercalórico</h2>
-            <p className="section-subtitle">
-              Ganho de massa e alto aporte calórico
-            </p>
-          </div>
-
-          <div className="products-grid">
+        <div>
+          <h1>Hipercalorico</h1>
+          <p className="section-subtitle">
+            O suporte energético ideal para ganho de massa bruta e superação de limites.
+          </p>
+          <div className='product'>
             {hipercalorico.map((item) => (
-              <ProductsCard
-                key={item.id}
-                title={item.name}
-                price={item.price}
-                id={item.id}
-                image={item.image}
-              />
+              <ProductsCard key={item.id} title={item.name} price={item.price} id={item.id} image={item.image} />
             ))}
           </div>
         </div>
-
       </div>
     </section>
-  )
+  );
 }
 
-export default Products
+export default Products;
