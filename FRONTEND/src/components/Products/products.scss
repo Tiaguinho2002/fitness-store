@@ -1,236 +1,178 @@
 .Products-name {
-    display: flex;
-    margin-bottom: 1em;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  margin-bottom: 1em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .container-product {
-    display: flex;
-    flex-direction: column;
-    margin-left: 5rem;
-    justify-content: center;
-    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0 2rem;
 
- img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 2.0rem;
-    transition: transform 0.1s ease;
+  h1 {
+    text-align: center;
+    margin: 3rem 0 2rem 0;
+    font-size: 2rem;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 1.3rem;
+    color: rgb(75, 73, 73);
+    margin-top: 1rem;
+  }
+
+  p {
+    color: green;
+    font-weight: 800;
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  img {
+    width: 220px;
+    height: 220px;
+    transition: transform 0.2s ease;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  img:hover {
+    transform: scale(1.05);
+  }
 }
 
-img:hover {
-  transform: scale(1.1); 
+.product {
+  width: 100%;
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  justify-items: center;
 }
-    
 
-    p{
-        color: green;
-        font-weight: 800;
-        font-size: 1.6em;
-        margin-bottom: 0.3rem;
-        margin-left: 0.5rem;
+.btn-comprar {
+  width: 80%;
+  height: 45px;
+  border-radius: 5px;
+  background-color: green;
+  text-transform: uppercase;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: 0.2s;
+}
+
+.btn-comprar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* =======================
+   BREAKPOINT MIXIN
+======================= */
+
+@mixin breakpoint($point) {
+  @if $point == small {
+    @media (max-width: 600px) { @content; }
+  }
+  @elseif $point == medium {
+    @media (max-width: 900px) { @content; }
+  }
+  @elseif $point == large {
+    @media (max-width: 1550px) { @content; }
+  }
+}
+
+/* =======================
+   LARGE (até 1550px)
+======================= */
+
+@include breakpoint(large) {
+  .product {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .container-product img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* =======================
+   MEDIUM (até 900px)
+======================= */
+
+@include breakpoint(medium) {
+  .product {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .container-product {
+    h1 {
+      font-size: 1.6rem;
+    }
+
+    img {
+      width: 160px;
+      height: 160px;
     }
 
     h2 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        max-width: 70%;
-        font-size: 1.6em;
-        color: rgb(75, 73, 73);
-        margin-top: 1rem;
-
+      font-size: 1rem;
     }
 
+    p {
+      font-size: 1.1rem;
+    }
+  }
+
+  .btn-comprar {
+    height: 38px;
+    font-size: 0.85rem;
+  }
+}
+
+/* =======================
+   SMALL (até 600px)
+======================= */
+
+@include breakpoint(small) {
+  .product {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .container-product {
+    padding: 0 1rem;
 
     h1 {
-        display: flex;
-        margin-right: 4.5rem;
-        justify-content: center;
-        margin-bottom: 2rem;
-        margin-top: 3rem;
-        font-size: 2rem;
+      font-size: 1.4rem;
+      margin: 2rem 0 1.5rem 0;
     }
 
-  }
-
-  .product {
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-  }
-
-
-.btn-comprar {
-    width: 80%;
-    height: 50px;
-    border-radius: 5px;
-    background-color: green;
-    text-transform: uppercase;
-    color: white;
-    font-size: 1rem;
-    margin-bottom: 4rem;
-    cursor: pointer;
-}
-
-.btn-comprar:hover{
-    background-color: green; 
-    transform: translateY(-1px); 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-
-
-@mixin breakpoint($point) {
-    @if $point == small {
-      @media (max-width: 600px) { @content; }
+    img {
+      width: 140px;
+      height: 140px;
     }
-    @elseif $point == medium {
-      @media (max-width: 900px) { @content; }
+
+    h2 {
+      font-size: 0.9rem;
     }
-    @elseif $point == large {
-      @media (max-width: 1550px) { @content; }
+
+    p {
+      font-size: 1rem;
     }
   }
-  
 
-@include breakpoint(large) {
-    .btn-comprar {
-        opacity: 1;
-    }
-
-    .container-product {
-        img {
-            margin-left: 1rem;
-            width: 220px;
-            height: 220px;
-        }
-
-        h2 {
-            font-size: 1.1rem;
-            margin-top: 0.5rem;
-            text-align: center;
-            max-width: 100%;
-            padding-top: 0.5rem;
-            margin-right: 3rem;
-        }
-
-        p {
-            font-size: 1.2rem;
-            margin-left: 0;
-            text-align: center;
-        }
-
-        button {
-            width: 80%;
-            height: 40px;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            margin-left: .4rem;
-        }
-    }
-}
-
-@include breakpoint(medium) {
-   .product {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-left: 0;
-        padding: 0 2rem;
-        justify-items: center;
-
-        .btn-comprar {
-            width: 85%;
-            height: 32px;
-            font-size: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-    }
-
-    .container-product {
-        img {
-            margin-left: 0;
-            width: 100px;
-            height: 100px;
-            margin-bottom: 1rem;
-        }
-
-        h2 {
-            font-size: 0.9rem;
-            margin-top: 0.3rem;
-            text-align: center;
-            max-width: 100%;
-        }
-
-        p {
-            font-size: 1rem;
-            margin-left: 0;
-            text-align: center;
-        }
-    }
-
-    .Products-name {
-        font-size: 100%;
-    }
-}
-
-@include breakpoint(small)  {
-    
-    .product{
-        display: flex;
-        flex-direction: column;
-        gap: 0.8rem;
-        justify-items: center;
-        padding: 0 1rem;
-        margin-left: 0;
-    
-        .btn-comprar {
-            width: 90%;
-            height: 28px;
-            font-size: 0.65rem;
-            margin-bottom: 1.5rem;
-            margin-left: 1.1rem;
-        }
-    }
-
-    .container-product {
-        margin-left: 0;
-
-        img {
-            margin-left: 7rem;
-            width: 100px;
-            height: 100px;
-            margin-bottom: 1rem;
-        }
-
-        h2 {
-            font-size: 0.75rem;
-            margin-top: 0.2rem;
-            text-align: center;
-            max-width: 100%;
-            line-height: 1.1;
-        }
-
-        p {
-            font-size: 0.85rem;
-            margin-left: 0;
-            text-align: center;
-            margin-bottom: 0.2rem;
-        }
-
-        h1 {
-            font-size: 1.3rem;
-            margin-right: 0;
-            margin-bottom: 1.5rem;
-            margin-top: 2rem;
-        }
-    }
-
-    .Products-name {
-        font-size: 180%;
-    }
+  .btn-comprar {
+    height: 32px;
+    font-size: 0.75rem;
+  }
 }
