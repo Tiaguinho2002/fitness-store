@@ -17,10 +17,11 @@ const FinalizarCompra = () => {
             return;
         }
 
-        const item = cartItems[0];
+        const totalVenda = cartItems.reduce((acc, item) => acc + item.price, 0);
+
         const payload = {
-            Title: item.title,
-            Price: item.price,
+            Title: cartItems.length > 1 ? `Pedido Fitness Store (${cartItems.length} itens)` : cartItems[0].title,
+            Price: totalVenda,
             PayerEmail: "teste@email.com",
             PayerName: formData?.firstName || "Tiaguinho",
             PayerSurname: formData?.lastName || "Santos",
