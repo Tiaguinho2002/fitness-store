@@ -4,9 +4,12 @@ import './index.scss';
 import { useAuth } from '../../context/AuthContext';
 import { User } from '../../context/AuthContext';
 
+// URL backend no Render
+const API_BASE_URL = 'https://fitness-store-backend-kn2k.onrender.com';
+
 async function registerUser(email: string, password: string): Promise<User> {
   try {
-    const response = await fetch('http://localhost:5266/api/auth/register', {
+    const response = await fetch(`${API_BASE_URL}/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -27,7 +30,6 @@ async function registerUser(email: string, password: string): Promise<User> {
       return user;
     } else {
       const errorData = await response.json();
-      console.error('Error registering user:', errorData);
       throw new Error(errorData.message || 'Failed to register user');
     }
   } catch (error) {
@@ -38,7 +40,7 @@ async function registerUser(email: string, password: string): Promise<User> {
 
 async function loginUser(email: string, password: string): Promise<User> {
   try {
-    const response = await fetch('http://localhost:5266/api/auth/login', {
+    const response = await fetch(`${API_BASE_URL}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -48,8 +50,6 @@ async function loginUser(email: string, password: string): Promise<User> {
 
     if (response.ok) {
       const data = await response.json();
-      console.log('User logged in successfully:', data);
-
       const user: User = {
         id: data.id,
         email: data.email,
@@ -59,7 +59,6 @@ async function loginUser(email: string, password: string): Promise<User> {
       return user;
     } else {
       const errorData = await response.json();
-      console.error('Error logging in user:', errorData);
       throw new Error(errorData.message || 'Failed to log in user');
     }
   } catch (error) {
@@ -85,7 +84,7 @@ const Login = () => {
       alert('Login bem-sucedido!');
       navigate('/');
     } catch (error) {
-      alert('Falha no login');
+      alert('Falha no login: verifique suas credenciais.');
     }
   };
 
@@ -94,10 +93,10 @@ const Login = () => {
     try {
       const userData = await registerUser(registerEmail, registerPassword);
       login(userData);
-      alert('Registro bem-sucedido! Por favor, faça login.');
+      alert('Registro bem-sucedido!');
       navigate('/');
     } catch (error) {
-      alert('Falha no registro');
+      alert('Falha no registro: este e-mail já pode estar em uso.');
     }
   };
 
@@ -113,8 +112,6 @@ const Login = () => {
             <input
               type="email"
               id="login-email"
-              name="loginEmail"
-              placeholder="Seu e-mail"
               value={loginEmail}
               onChange={(e) => setLoginEmail(e.target.value)}
               required
@@ -125,8 +122,6 @@ const Login = () => {
             <input
               type="password"
               id="login-password"
-              name="loginPassword"
-              placeholder="Sua senha"
               value={loginPassword}
               onChange={(e) => setLoginPassword(e.target.value)}
               required
@@ -134,10 +129,6 @@ const Login = () => {
           </div>
           <button type="submit" className="btn-prosseguir">Prosseguir</button>
         </form>
-        <div className="forgot-password">
-          <i className="fa-solid fa-lock"></i>{' '}
-          <a href="#">Esqueceu a senha ou precisa criar?</a>
-        </div>
       </div>
 
       <div className="register-box">
@@ -146,12 +137,10 @@ const Login = () => {
         </h2>
         <form onSubmit={handleRegister}>
           <div className="form-group">
-            <label htmlFor="register-email">Digite o email que deseja cadastrar:</label>
+            <label htmlFor="register-email">E-mail para cadastro:</label>
             <input
               type="email"
               id="register-email"
-              name="registerEmail"
-              placeholder="Seu e-mail"
               value={registerEmail}
               onChange={(e) => setRegisterEmail(e.target.value)}
               required
@@ -162,8 +151,6 @@ const Login = () => {
             <input
               type="password"
               id="register-password"
-              name="registerPassword"
-              placeholder="Sua senha"
               value={registerPassword}
               onChange={(e) => setRegisterPassword(e.target.value)}
               required
