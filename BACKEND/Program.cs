@@ -11,9 +11,9 @@ builder.Services.AddCors(options =>
         policy => policy.WithOrigins("https://fitness-store-jade.vercel.app") 
                         .AllowAnyMethod()
                         .AllowAnyHeader()
-                        .AllowCredentials()); // Opcional: útil se você usar Cookies/Tokens no futuro
+                        .AllowCredentials()); // usar Cookies/Tokens no futuro
 
-    // Mantendo uma política aberta para testes locais se preferir
+    // Mantendo uma política aberta para testes locais
     options.AddPolicy("DevelopmentPolicy",
         policy => policy.AllowAnyOrigin()
                         .AllowAnyMethod()
@@ -42,6 +42,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySQL(connectionString));
 
 var app = builder.Build();
+
+// API criar tabela no Aiven ao subir no Render
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    dbContext.Database.Migrate();
+}
+
 
 app.MapGet("/user", (IUserService service) => 
 {
