@@ -14,4 +14,4 @@ FROM mcr.microsoft.com/dotnet/aspnet:9.0
 WORKDIR /app
 COPY --from=build /app/publish .
 
-ENTRYPOINT ["dotnet", "fitness-store.dll"]
+ENTRYPOINT ["dotnet", "SmartSystem.dll"]
