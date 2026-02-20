@@ -29,7 +29,7 @@ const handleCheckout = async () => {
     PayerEmail: "teste@email.com",
     PayerName: "Maria",
     PayerSurname: "Santos",
-    PayerDocument: "50666723893",
+    PayerDocument: "50666733893",
     OrderId: "PEDIDO-67890"
   };
 

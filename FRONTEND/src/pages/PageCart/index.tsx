@@ -1,7 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AppContext from "../../context/AppContext";
 import './index.scss'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 function PageCart() {
@@ -9,6 +9,16 @@ function PageCart() {
     const { handleIncrease } = useContext(AppContext);
     const { handleDecrease } = useContext(AppContext);
     const { handleRemove } = useContext(AppContext);
+    const navigate = useNavigate();
+
+    const handleFinishPurchase = () => {
+        if (cartItems.length === 0) {
+            alert('O carrinho está vazio!');
+            return;
+        } else {
+            navigate('/FinalizarCompra');
+        }
+    }
 
 
     return (
@@ -58,11 +68,8 @@ function PageCart() {
                     <p>Seu carrinho está vazio.</p>
                 )}
             </div>
-
-            <Link to="/FinalizarCompra">
-                <button className="btn-finish">Finalizar compra</button>
-            </Link>
-        </div>
+                <button className="btn-finish" onClick={handleFinishPurchase}>Finalizar compra</button>
+            </div>
 
 
     )
