@@ -1,5 +1,5 @@
 import './Footer.scss';
-import direitoImg from '../../assets/direitos.jpg'; 
+import direitoImg from '../../assets/direitos.jpg';
 import { Link } from 'react-router-dom';
 
 function Footer() {
@@ -10,11 +10,12 @@ function Footer() {
                     <div className='footer-section Categorias'>
                         <span className='section-title'>Categorias</span>
                         <ul className='category-list'>
-                        <Link to='/'><a href="#">Home</a></Link>
-                        <Link to='/WheyProtein'><a href="#">Whey Protein</a></Link>
-                        <Link to='/Creatina'><a href="#">Creatina</a></Link>
-                        <Link to='/preTreino'><a href="#">Pré-Treino</a></Link>
-                        <Link to='/Glutamina'><a href="#">Glutamina</a></Link>
+                            <Link to='/'><a href="#">Home</a></Link>
+                            <Link to='/WheyProtein'><a href="#">Whey Protein</a></Link>
+                            <Link to='/Creatina'><a href="#">Creatina</a></Link>
+                            <Link to='/preTreino'><a href="#">Pré-Treino</a></Link>
+                            <Link to='/Glutamina'><a href="#">Glutamina</a></Link>
+                            <Link to="/Hipercalorico"><a href="#">Hipercalórico</a></Link>
                         </ul>
                     </div>
 
@@ -45,7 +46,7 @@ function Footer() {
                         </ul>
                         <span className='schedule-title'>Horário de atendimento:</span>
                         <p className='schedule-text'>
-                            Segunda a sexta-feira: 9:00 às 18:00hrs <br /> 
+                            Segunda a sexta-feira: 9:00 às 18:00hrs <br />
                         </p>
                     </div>
                 </div>

@@ -70,8 +70,6 @@ function PageCart() {
             </div>
                 <button className="btn-finish" onClick={handleFinishPurchase}>Finalizar compra</button>
             </div>
-
-
     )
 }
 
