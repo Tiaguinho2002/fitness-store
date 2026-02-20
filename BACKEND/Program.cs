@@ -8,9 +8,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAllOrigins",
-        builder => builder.AllowAnyOrigin()
-                          .AllowAnyMethod()
-                          .AllowAnyHeader());
+        policy => policy.WithOrigins("https://fitness-store-jade.vercel.app") 
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials()); // Opcional: útil se você usar Cookies/Tokens no futuro
+
+    // Mantendo uma política aberta para testes locais se preferir
+    options.AddPolicy("DevelopmentPolicy",
+        policy => policy.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
 });
 
 MercadoPago.Config.MercadoPagoConfig.AccessToken = "TEST-6247168726016538-073010-da7ad956f12e2f712d036b07a4850136-522712470";
@@ -22,7 +29,6 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
     });
 
-builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddTransient<TokenService>();
 builder.Services.AddTransient<UserService>();
