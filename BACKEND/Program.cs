@@ -25,7 +25,7 @@ MercadoPago.Config.MercadoPagoConfig.AccessToken = "TEST-6247168726016538-073010
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
-        // Esta linha configura o serializador para usar camelCase
+        // Esta linha configura o serializador para usar camelCasee
         options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
     });
 
