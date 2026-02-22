@@ -78,5 +78,10 @@ public class UserService : IUserService
 
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
+
+    public object Login(UserLogin userLogin)
+    {
+        throw new NotImplementedException();
+    }
 }
 
