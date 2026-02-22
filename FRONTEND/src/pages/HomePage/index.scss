@@ -2,7 +2,6 @@
   padding: 4rem 1rem 5rem 1rem;
 }
 
-
 .section-header {
   text-align: center;
   margin-bottom: 3.5rem;
@@ -24,7 +23,6 @@
   letter-spacing: 0.5px;
 }
 
-
 .preferidos-grid {
   display: flex;
   justify-content: center;
@@ -41,7 +39,6 @@
   overflow: hidden;
   cursor: pointer;
   transition: all 0.45s cubic-bezier(.4, 0, .2, 1);
-
   box-shadow:
     0 12px 25px rgba(0, 0, 0, 0.08),
     0 6px 15px rgba(0, 0, 0, 0.05);
@@ -79,13 +76,8 @@
     }
   }
 
-  /* =========================
-     HOVER EFFECT PREMIUM
-  ========================= */
-
   &:hover {
     transform: translateY(-14px);
-
     box-shadow:
       0 35px 65px rgba(0, 0, 0, 0.18),
       0 18px 35px rgba(0, 0, 0, 0.12);
@@ -104,6 +96,26 @@
   }
 }
 
+.preferidos-indicators {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ccc;
+    transition: all 0.3s ease;
+
+    &.active {
+      background-color: #111;
+      width: 20px;
+      border-radius: 10px;
+    }
+  }
+}
 
 @media (max-width: 1000px) {
   .section-title {
@@ -117,13 +129,39 @@
 }
 
 @media (max-width: 600px) {
+  .preferidos {
+    padding: 2rem 0.5rem;
+    overflow: hidden;
+  }
+
   .preferidos-grid {
-    flex-direction: column;
-    gap: 1.8rem;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 20px 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
   }
 
   .preferido-card {
-    width: 260px;
-    height: 260px;
+    flex: 0 0 calc(50% - 10px);
+    width: calc(50% - 10px);
+    height: 200px;
+    scroll-snap-align: start;
+    
+    .overlay span {
+      font-size: 1.1rem;
+    }
+  }
+
+  .preferidos-indicators {
+    display: flex;
   }
 }

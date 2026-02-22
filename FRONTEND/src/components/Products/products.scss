@@ -14,22 +14,20 @@
   padding: 0 2rem;
 
   .section-subtitle {
-  font-size: 1rem;
-  color: #777;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  text-align: center;
-  margin-bottom: 2.3rem;
-}
+    font-size: 1rem;
+    color: #777;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-align: center;
+    margin-bottom: 2.3rem;
+  }
 
   h1 {
     text-align: center;
-   
     font-size: 2rem;
   }
 }
 
-// grid
 .product {
   width: 100%;
   max-width: 1400px;
@@ -39,7 +37,6 @@
   justify-items: center;
 }
 
-
 .product > * {
   background: white;
   padding: 1.5rem 1rem 2rem 1rem;
@@ -47,37 +44,26 @@
   text-align: center;
   width: 100%;
   max-width: 280px;
-  transition: all 0.35s cubic-bezier(.4,0,.2,1);
+  transition: all 0.35s cubic-bezier(.4, 0, .2, 1);
   margin-bottom: 3rem;
-
-  box-shadow:
-    0 6px 18px rgba(0, 0, 0, 0.06),
-    0 3px 8px rgba(0, 0, 0, 0.04);
-
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06), 0 3px 8px rgba(0, 0, 0, 0.04);
   position: relative;
   overflow: hidden;
+  box-sizing: border-box; // Garante que o padding não aumente o card
 }
 
-/* overlay suave no hover */
 .product > *::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0,0,0,0.02),
-    rgba(0,0,0,0.04)
-  );
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.04));
   opacity: 0;
   transition: opacity 0.35s ease;
 }
 
-/* HOVER CARD */
 .product > *:hover {
   transform: translateY(-10px);
-  box-shadow:
-    0 25px 45px rgba(0, 0, 0, 0.15),
-    0 12px 20px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15), 0 12px 20px rgba(0, 0, 0, 0.10);
 }
 
 .product > *:hover::before {
@@ -85,11 +71,13 @@
 }
 
 .container-product img {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  aspect-ratio: 1/1;
   border-radius: 16px;
   object-fit: cover;
-  transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+  transition: transform 0.4s cubic-bezier(.4, 0, .2, 1);
 }
 
 .product > *:hover img {
@@ -100,6 +88,11 @@
   margin-top: 1rem;
   font-size: 1.1rem;
   color: rgb(70, 70, 70);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.3;
 }
 
 .container-product p {
@@ -123,72 +116,109 @@
   transition: all 0.3s ease;
 }
 
-.product > *:hover .btn-comprar {
-  background: green;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 128, 0, 0.3);
+.preferidos-indicators {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  margin-top: -1rem;
+  margin-bottom: 3.5rem;
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ccc;
+    transition: all 0.3s ease;
+
+    &.active {
+      background-color: #111;
+      width: 20px;
+      border-radius: 10px;
+    }
+  }
 }
 
-
 @mixin breakpoint($point) {
-  @if $point == small {
-    @media (max-width: 600px) { @content; }
-  }
-  @elseif $point == medium {
-    @media (max-width: 900px) { @content; }
-  }
-  @elseif $point == large {
-    @media (max-width: 1550px) { @content; }
-  }
+  @if $point == small { @media (max-width: 600px) { @content; } }
+  @else if $point == medium { @media (max-width: 900px) { @content; } }
+  @else if $point == large { @media (max-width: 1550px) { @content; } }
 }
 
 @include breakpoint(large) {
-  .product {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .section-subtitle {
-    margin-bottom: 2.3rem;
-  }
-
-  h1 {
-    
-  }
+  .product { grid-template-columns: repeat(4, 1fr); }
 }
 
 @include breakpoint(medium) {
-  .product {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .section-subtitle {
-    font-size: 0.95rem;
-    margin-bottom: 2rem;
-  }
-
-  .container-product img {
-    width: 170px;
-    height: 170px;
-  }
+  .product { grid-template-columns: repeat(2, 1fr); }
+  .container-product img { max-width: 170px; }
 }
 
 @include breakpoint(small) {
-  .product {
-    grid-template-columns: 1fr;
+  .container-product {
+    padding: 0 0.5rem;
+    max-width: 100vw;
+    overflow: hidden;
+    h1 { font-size: 1.4rem; }
   }
 
+  .product {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    padding: 15px 10px; 
+    width: 100%;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
 
-  .container-product {
-    padding: 0 1rem;
+    &::-webkit-scrollbar { display: none; }
+    scrollbar-width: none;
+  }
 
-    h1 {
-      margin-top: 1rem;
-      font-size: 1.4rem;
+  .product > * {
+    // Cálculo identico aos preferidos
+    flex: 0 0 calc(50% - 12px);
+    width: calc(50% - 12px);
+    min-width: 0; 
+    max-width: none;
+    margin-bottom: 0;
+    padding: 1rem 0.5rem;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+
+    h2 { 
+      font-size: 0.85rem; 
+      white-space: normal; // Garante que o texto quebre linha e não empurre o card
+      width: 100%;
+      word-break: break-word;
+    }
+
+    p { font-size: 1rem; }
+    .btn-comprar { font-size: 0.7rem; height: 35px; }
+  }
+
+  // Ajuste fino para telas menores (ex: iPhone SE / 360px)
+  @media (max-width: 455px) {
+    .product {
+        gap: 8px;
+    }
+    .product > * {
+      flex: 0 0 calc(50% - 10px);
+      width: calc(50% - 10px);
+      padding: 0.8rem 0.4rem;
+      h2 { font-size: 0.75rem; }
+      p { font-size: 0.9rem; }
     }
   }
 
   .container-product img {
-    width: 150px;
-    height: 150px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .preferidos-indicators {
+    display: flex;
+    margin-top: 0.5rem;
   }
 }
