@@ -16,12 +16,13 @@ function Products() {
   const [activeGluta, setActiveGluta] = useState(0);
   const [activeHiper, setActiveHiper] = useState(0);
 
-  const handleScroll = (e, setter) => {
-    const scrollLeft = e.target.scrollLeft;
-    const width = e.target.offsetWidth;
-    const newIndex = Math.round(scrollLeft / (width / 2));
-    setter(newIndex);
-  };
+const handleScroll = (e: React.UIEvent<HTMLElement>, setter: React.Dispatch<React.SetStateAction<number>>) => {
+  const target = e.target as HTMLElement;
+  const scrollLeft = target.scrollLeft;
+  const width = target.offsetWidth;
+  const newIndex = Math.round(scrollLeft / (width / 2));
+  setter(newIndex);
+};
 
   return (
     <section>

@@ -10,11 +10,13 @@ import Banner from '../../assets/banner/banner'
 function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0)
 
-  const handleScroll = (e) => {
-    const scrollLeft = e.target.scrollLeft
-    const width = e.target.offsetWidth
-    const newIndex = Math.round(scrollLeft / (width / 2))
-    setActiveIndex(newIndex)
+  // Tipando o evento 'e' como um evento de scroll de um elemento HTML
+  const handleScroll = (e: React.UIEvent<HTMLElement>) => {
+    const target = e.target as HTMLElement;
+    const scrollLeft = target.scrollLeft;
+    const width = target.offsetWidth;
+    const newIndex = Math.round(scrollLeft / (width / 2));
+    setActiveIndex(newIndex);
   }
 
   return (
