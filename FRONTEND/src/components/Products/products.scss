@@ -49,25 +49,36 @@
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06), 0 3px 8px rgba(0, 0, 0, 0.04);
   position: relative;
   overflow: hidden;
-  box-sizing: border-box; // Garante que o padding não aumente o card
-}
+  box-sizing: border-box;
+  z-index: 1;
+  pointer-events: auto;
 
-.product > *::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.04));
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.04));
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
 
-.product > *:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15), 0 12px 20px rgba(0, 0, 0, 0.10);
-}
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15), 0 12px 20px rgba(0, 0, 0, 0.10);
+    
+    &::before {
+      opacity: 1;
+    }
 
-.product > *:hover::before {
-  opacity: 1;
+    img {
+      transform: scale(1.06);
+    }
+
+    .btn-comprar {
+      background: #008000;
+      box-shadow: 0 6px 14px rgba(0, 128, 0, 0.3);
+    }
+  }
 }
 
 .container-product img {
@@ -78,10 +89,6 @@
   border-radius: 16px;
   object-fit: cover;
   transition: transform 0.4s cubic-bezier(.4, 0, .2, 1);
-}
-
-.product > *:hover img {
-  transform: scale(1.06);
 }
 
 .container-product h2 {
@@ -114,6 +121,8 @@
   cursor: pointer;
   border: none;
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 10;
 }
 
 .preferidos-indicators {
@@ -177,7 +186,6 @@
   }
 
   .product > * {
-    // Cálculo identico aos preferidos
     flex: 0 0 calc(50% - 12px);
     width: calc(50% - 12px);
     min-width: 0; 
@@ -187,9 +195,15 @@
     scroll-snap-align: start;
     box-sizing: border-box;
 
+    &:active {
+      .btn-comprar {
+        background: #008000;
+      }
+    }
+
     h2 { 
       font-size: 0.85rem; 
-      white-space: normal; // Garante que o texto quebre linha e não empurre o card
+      white-space: normal;
       width: 100%;
       word-break: break-word;
     }
@@ -198,7 +212,6 @@
     .btn-comprar { font-size: 0.7rem; height: 35px; }
   }
 
-  // Ajuste fino para telas menores (ex: iPhone SE / 360px)
   @media (max-width: 455px) {
     .product {
         gap: 8px;
