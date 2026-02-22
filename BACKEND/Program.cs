@@ -43,13 +43,15 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 var app = builder.Build();
 
+// Habilitar o middleware CORS
+app.UseCors("AllowAllOrigins");
+
 // API criar tabela no Aiven ao subir no Render
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     dbContext.Database.Migrate();
 }
-
 
 app.MapGet("/user", (IUserService service) => 
 {
@@ -70,9 +72,13 @@ app.MapPost("/register", (UserRegister userRegister, IUserService userService) =
     return Results.Ok(result);
 });
 
+app.MapPost("/login", (UserLogin userLogin, IUserService userService) =>
+{
+    var result = userService.Login(userLogin); 
+    if (result == null) return Results.Unauthorized();
+    return Results.Ok(result);
+});
 
-// Habilitar o middleware CORS
-app.UseCors("AllowAllOrigins");
 
 
 if (app.Environment.IsDevelopment())

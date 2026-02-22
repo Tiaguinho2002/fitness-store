@@ -9,4 +9,5 @@ public interface IUserService
     Task<User> Create(UserRegister userRegister);
     Task<User> Authenticate(UserLogin userLogin); 
     string GenerateToken(User user);
+    object Login(UserLogin userLogin);
 }
