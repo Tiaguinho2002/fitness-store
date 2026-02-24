@@ -39,6 +39,9 @@ builder.Services.AddHttpClient();
 
 var connectionString = builder.Configuration.GetConnectionString("AppDbConnectionString");
 
+// Log temporário para debug
+Console.WriteLine($"CONNECTION STRING: {connectionString?.Substring(0, Math.Min(50, connectionString?.Length ?? 0))}...");
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySQL(connectionString!));
 
@@ -79,11 +82,10 @@ app.MapPost("/register", async (UserRegister userRegister, IUserService userServ
     if (result == null)
         return Results.Conflict(new { message = "E-mail já está em uso." });
 
-    // Retorna apenas o necessário, sem expor PasswordHash
     return Results.Ok(new { 
         id = result.Id, 
         email = result.Email,
-        token = "" // adicione token aqui se quiser gerar JWT no registro
+        token = ""
     });
 });
 
@@ -97,7 +99,7 @@ app.MapPost("/login", async (UserLogin userLogin, IUserService userService) =>
     return Results.Ok(new { 
         id = result.Id, 
         email = result.Email,
-        token = "" // adicione token aqui
+        token = ""
     });
 });
 
