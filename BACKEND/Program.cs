@@ -3,30 +3,31 @@ using SmartSystem.Data;
 using MySql.EntityFrameworkCore.Extensions;
 using SmartSystem.Services;
 using SmartSystem.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAllOrigins",
-        policy => policy.WithOrigins("https://fitness-store-jade.vercel.app") 
-                        .AllowAnyMethod()
-                        .AllowAnyHeader()
-                        .AllowCredentials()); // usar Cookies/Tokens no futuro
-
-    // Mantendo uma política aberta para testes locais
-    options.AddPolicy("DevelopmentPolicy",
-        policy => policy.AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader());
+        policy => policy
+            .WithOrigins(
+                "https://fitness-store-jade.vercel.app",
+                "http://localhost:5173"
+            )
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials());
 });
 
-MercadoPago.Config.MercadoPagoConfig.AccessToken = "TEST-6247168726016538-073010-da7ad956f12e2f712d036b07a4850136-522712470";
+MercadoPago.Config.MercadoPagoConfig.AccessToken = 
+    builder.Configuration["MercadoPago:AccessToken"] 
+    ?? "TEST-6247168726016538-073010-da7ad956f12e2f712d036b07a4850136-522712470";
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
-        // Esta linha configura o serializador para usar camelCasee
-        options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
+        options.JsonSerializerOptions.PropertyNamingPolicy = 
+            System.Text.Json.JsonNamingPolicy.CamelCase;
     });
 
 builder.Services.AddOpenApi();
@@ -39,17 +40,25 @@ builder.Services.AddHttpClient();
 var connectionString = builder.Configuration.GetConnectionString("AppDbConnectionString");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseMySQL(connectionString));
+    options.UseMySQL(connectionString!));
 
 var app = builder.Build();
 
-// API criar tabela no Aiven ao subir no Render
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     dbContext.Database.Migrate();
 }
 
+app.UseCors("AllowAllOrigins");
+
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+    app.UseHttpsRedirection();
+}
+
+app.UseAuthorization();
 
 app.MapGet("/user", (IUserService service) => 
 {
@@ -63,26 +72,34 @@ app.MapGet("/user", (IUserService service) =>
     return newUser;
 });
 
-app.MapPost("/register", (UserRegister userRegister, IUserService userService) =>
+app.MapPost("/register", async (UserRegister userRegister, IUserService userService) =>
 {
-    var result = userService.Create(userRegister);
+    var result = await userService.Create(userRegister);
     
-    return Results.Ok(result);
+    if (result == null)
+        return Results.Conflict(new { message = "E-mail já está em uso." });
+
+    // Retorna apenas o necessário, sem expor PasswordHash
+    return Results.Ok(new { 
+        id = result.Id, 
+        email = result.Email,
+        token = "" // adicione token aqui se quiser gerar JWT no registro
+    });
 });
 
-
-// Habilitar o middleware CORS
-app.UseCors("AllowAllOrigins");
-
-
-if (app.Environment.IsDevelopment())
+app.MapPost("/login", async (UserLogin userLogin, IUserService userService) =>
 {
-    app.MapOpenApi();
-}
+    var result = await userService.Authenticate(userLogin);
 
-app.UseHttpsRedirection();
+    if (result == null)
+        return Results.Unauthorized();
 
-app.UseAuthorization();
+    return Results.Ok(new { 
+        id = result.Id, 
+        email = result.Email,
+        token = "" // adicione token aqui
+    });
+});
 
 app.MapControllers();
 

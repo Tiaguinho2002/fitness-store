@@ -5,7 +5,8 @@ import { useAuth } from '../../context/AuthContext';
 import { User } from '../../context/AuthContext';
 
 // URL backend no Render
-const API_BASE_URL = 'https://fitness-store-backend-kn2k.onrender.com';
+//const API_BASE_URL = 'https://fitness-store-backend-kn2k.onrender.com';
+const API_BASE_URL = "http://localhost:5266";
 
 async function registerUser(email: string, password: string): Promise<User> {
   try {
