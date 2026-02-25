@@ -240,7 +240,7 @@ function Header() {
                     )}
                     <ul className='cart-nav-list'>
                         <h1 className='cart-compras'>Compras</h1>
-                        <ProductsCart />
+                      <ProductsCart onGoToCart={handleGoToCart} />
                     </ul>
                 </nav>
 

@@ -2,15 +2,17 @@ import { BsFillCartDashFill } from "react-icons/bs";
 import { useContext } from 'react';
 import AppContext from '../../context/AppContext';
 import './ProductsCart.scss';
-import { Link } from "react-router-dom";
 
-export default function ProductsCart() {
+type Props = {
+  onGoToCart: () => void;
+}
+
+export default function ProductsCart({ onGoToCart }: Props) {
   const { cartItems, setCartItems } = useContext(AppContext);
-    const { handleIncrease } = useContext(AppContext);
-    const { handleDecrease } = useContext(AppContext);
-    const { handleRemove } = useContext(AppContext);
-    const { totalPrice } = useContext(AppContext)
-
+  const { handleIncrease } = useContext(AppContext);
+  const { handleDecrease } = useContext(AppContext);
+  const { handleRemove } = useContext(AppContext);
+  const { totalPrice } = useContext(AppContext);
 
   return (
     <section className="products-cart">
@@ -18,7 +20,6 @@ export default function ProductsCart() {
         <p>O carrinho está vazio</p>
       ) : (
         <>
-          {/* ✅ Itens com scroll */}
           <div className="cart-items-container">
             {cartItems.map((item) => {
               const { id, image, title, price, quantity = 1 } = item;
@@ -65,14 +66,13 @@ export default function ProductsCart() {
             })}
           </div>
 
-          {/* ✅ Total fixo no final */}
           <div className="cart-total-fixed">
             <h3>Total: <strong>R$ {totalPrice.toFixed(2)}</strong></h3>
           </div>
 
-          <Link to="carrinho"> 
-          <button className="carrinho-btn">Ir para o Carrinho</button>
-          </Link>
+          <button className="carrinho-btn" onClick={onGoToCart}>
+            Ir para o Carrinho
+          </button>
         </>
       )}
     </section>
