@@ -4,25 +4,29 @@
             "id": 0,
             "name": "Whey Protein Concentrado (1KG)",
             "image": "https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
-            "price": 80.99
+            "price": 80.99,
+            "description": "O Whey Protein Concentrado (1KG) é ideal para quem está começando a suplementação. Proporciona uma fonte de proteína de alta qualidade para auxiliar no ganho de massa muscular e recuperação pós-treino."
           },
           {
             "id": 1,
             "name": "Whey Protein Concentrado (2KG)",
             "image": "https://img.freepik.com/premium-psd/protein-jar-with-label-mockup_7956-716.jpg",
-            "price": 135.99
+            "price": 135.99,
+            "description": "O Whey Protein Concentrado (2KG) é perfeito para atletas intermediários que buscam um suplemento de alta qualidade para ganho de massa muscular. Proporciona uma fonte de proteína de alta qualidade para auxiliar no ganho de massa muscular e recuperação pós-treino."
           },
           {
             "id": 2,
             "name": "Whey Protein Concentrado (3KG)",
             "image": "https://img.freepik.com/premium-psd/proptein-jar-mockup-3d-rendering_357655-115.jpg",
-            "price": 159.99
+            "price": 159.99,
+            "description": "O Whey Protein Concentrado (3KG) é perfeito para atletas avançados que buscam máxima performance. Proporciona uma fonte de proteína de alta qualidade para auxiliar no ganho de massa muscular e recuperação pós-treino."
           },
           {
             "id": 3,
             "name": "Whey Protein Concentrado (4KG)",
             "image": "https://img.freepik.com/free-vector/woman-dumbbell-sport-nutrition_1284-6586.jpg?w=740&t=st=1695662052~exp=1695662652~hmac=19e6e27191def37d9b02c00da57d3efc7b4644ba659d50754fa4d2fcfd5bf00a",
-            "price": 199.99
+            "price": 199.99,
+            "description": "O Whey Protein Concentrado (4KG) é a escolha ideal para atletas que buscam o melhor custo-benefício. Proporciona uma fonte de proteína de alta qualidade para auxiliar no ganho de massa muscular e recuperação pós-treino."
           }
     ]
 }

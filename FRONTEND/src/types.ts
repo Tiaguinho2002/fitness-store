@@ -5,6 +5,7 @@ export type Item = {
   title: string;
   price: number;
   quantity?: number;
+  description?: string;
 };
 
 export interface DeliveryFormData {
@@ -18,6 +19,6 @@ export interface DeliveryFormData {
     state: string;
     phone: string;
     country: string;
-    saveInfo: "on" | undefined; // O checkbox retorna "on" ou undefined se não estiver marcado
+    saveInfo: "on" | undefined; 
 }
 

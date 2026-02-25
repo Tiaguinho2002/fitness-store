@@ -1,8 +1,10 @@
 import { Item } from '../../types';
 import { useContext } from 'react';
 import AppContext from '../../context/AppContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductsCard({ id, title, image, price }: Item) {
+  const navigate = useNavigate();
   const { setCartItems } = useContext(AppContext);
 
   const handleAddToCart = (itemToAdd: Item) => {
@@ -23,19 +25,28 @@ export default function ProductsCard({ id, title, image, price }: Item) {
     });
   };
 
-
   return (
-    <div className="Products">
-      <img className="preferido-tree" src={image} alt={title} />
-      <h2 className="Products-name">{title}</h2>
+   <div className="Products">
+      {/* Imagem clicável leva para a página do produto */}
+      <img
+        className="preferido-tree"
+        src={image}
+        alt={title}
+        style={{ cursor: 'pointer' }}
+        onClick={() => navigate(`/produto/${id}`)}
+      />
+      <h2
+        className="Products-name"
+        style={{ cursor: 'pointer' }}
+        onClick={() => navigate(`/produto/${id}`)}
+      >
+        {title}
+      </h2>
       <p>R$ {price.toFixed(2)}</p>
-
       <button
         type="button"
         className="btn-comprar"
-        onClick={() =>
-          handleAddToCart({ id, title, image, price })
-        }
+        onClick={() => handleAddToCart({ id, title, image, price })}
       >
         Comprar
       </button>

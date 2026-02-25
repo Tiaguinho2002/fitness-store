@@ -1,28 +1,32 @@
 {
-    "glutamina": [
-        {
-            "id": 12,
-            "name": "Glutamina 250g",
-            "image": "https://media.istockphoto.com/id/877333328/pt/foto/3d-render-of-glutamine-jar-over-white.jpg?s=2048x2048&w=is&k=20&c=p3Djc20jYKiYFubAr8_QC9iuF2_SybO8md22HmujHko=",
-            "price": 19.90
-          },
-          {
-            "id": 13,
-            "name": "Glutamina 350g",
-            "image": "https://media.istockphoto.com/id/1849932865/pt/foto/glutamine-in-a-bottle-food-supplements-for-health.jpg?s=2048x2048&w=is&k=20&c=-HZYPCwIvBgXnkoj2CvaYkc4wEv40MJsII6pAdg3Pvc=",
-            "price": 39.90
-          },
-          {
-            "id": 14,
-            "name": "Glutamina 500g",
-            "image": "https://media.istockphoto.com/id/667013316/pt/vetorial/vector-packaging-layout.jpg?s=2048x2048&w=is&k=20&c=HJNc3yqItj6m5tJpfeBJ9VIKsGhBeY71x2ZtT-l6HRc=",
-            "price": 55.99
-          },
-          {
-            "id": 15,
-            "name": "Glutamina 700g",
-            "image": "https://media.istockphoto.com/id/1150258437/pt/foto/pill-bottle-black-3d-rendering.jpg?s=2048x2048&w=is&k=20&c=12Y54zwbUbMt4qahuhDmkrnwpexmFn7KTk91Ep2KvwU=",
-             "price": 69.90
-          }
-    ]
+  "glutamina": [
+    {
+      "id": 12,
+      "name": "L - Glutamina 250g - 100% Pura",
+      "image": "https://media.istockphoto.com/id/877333328/pt/foto/3d-render-of-glutamine-jar-over-white.jpg?s=2048x2048&w=is&k=20&c=p3Djc20jYKiYFubAr8_QC9iuF2_SybO8md22HmujHko=",
+      "price": 19.9,
+      "description": "A L - Glutamina 250g é perfeita para quem está começando a suplementação. Aumenta a síntese proteica e reduz a fadiga, promovendo uma recuperação mais rápida e eficiente."
+    },
+    {
+      "id": 13,
+      "name": "L - Glutamina 350g  - 100% Pura",
+      "image": "https://media.istockphoto.com/id/1849932865/pt/foto/glutamine-in-a-bottle-food-supplements-for-health.jpg?s=2048x2048&w=is&k=20&c=-HZYPCwIvBgXnkoj2CvaYkc4wEv40MJsII6pAdg3Pvc=",
+      "price": 39.9,
+      "description": "A L - Glutamina 350g é ideal para quem busca um suplemento de alta qualidade para recuperação muscular. Aumenta a síntese proteica e reduz a fadiga, promovendo uma recuperação mais rápida e eficiente."
+    },
+    {
+      "id": 14,
+      "name": "L - Glutamina 500g  - 100% Pura",
+      "image": "https://media.istockphoto.com/id/667013316/pt/vetorial/vector-packaging-layout.jpg?s=2048x2048&w=is&k=20&c=HJNc3yqItj6m5tJpfeBJ9VIKsGhBeY71x2ZtT-l6HRc=",
+      "price": 55.99,
+      "description": "A L - Glutamina 500g é perfeita para atletas avançados que buscam máxima performance. Aumenta a síntese proteica e reduz a fadiga, promovendo uma recuperação mais rápida e eficiente."
+    },
+    {
+      "id": 15,
+      "name": "L - Glutamina 700g - 100% Pura",
+      "image": "https://media.istockphoto.com/id/1150258437/pt/foto/pill-bottle-black-3d-rendering.jpg?s=2048x2048&w=is&k=20&c=12Y54zwbUbMt4qahuhDmkrnwpexmFn7KTk91Ep2KvwU=",
+      "price": 69.9,
+      "description": "A L - Glutamina 700g é a escolha ideal para atletas que buscam o melhor custo-benefício. Aumenta a síntese proteica e reduz a fadiga, promovendo uma recuperação mais rápida e eficiente."
+    }
+  ]
 }

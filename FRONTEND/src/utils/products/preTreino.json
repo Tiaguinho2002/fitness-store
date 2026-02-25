@@ -4,26 +4,30 @@
           {
             "id": 8,
             "image": "https://media.istockphoto.com/id/1199211839/pt/foto/3d-illustration-caffeine-capsules.webp?s=2048x2048&w=is&k=20&c=8a-CMkPZM_EDLkjrAcNalOnXv85FfzFMSY2YgVADi94=",
-            "name": "Pré-Treino 500g",
-            "price": 35.90
+            "name": "Pré-Treino 500g Power Pro (Sabor Laranja)",
+            "price": 35.90,
+            "description": "O Pré-Treino 500g é ideal para quem está começando a suplementação. Fornece energia, foco e resistência para melhorar o desempenho durante os treinos, com um sabor delicioso de laranja."
           },
           {
             "id": 9,
             "image": "https://media.istockphoto.com/id/937852108/photo/3d-render-of-pre-workout-pill-with-granules.webp?b=1&s=612x612&w=0&k=20&c=_HybwQXV2F0KZ5id_VUCcI5PUOCR0JaH-Bxe5JZMLq4=",
-            "name": "Pré-Treino 700g",
-            "price": 45.90
+            "name": "Pré-Treino 500g Night Wolf (Sabor Uva)",
+            "price": 45.90,
+            "description": "O Pré-Treino 500g é ideal para quem está começando a suplementação. Fornece energia, foco e resistência para melhorar o desempenho durante os treinos, com um sabor delicioso de uva."
           },
           {
             "id": 10,
             "image": "https://img.freepik.com/free-vector/kettlebell-protein-shake-container_1284-6584.jpg?size=626&ext=jpg&ga=GA1.2.2002258790.1695662034&semt=ais",
-            "name": "Pré-Treino 900g",
-            "price": 55.60
+            "name": "Pré-Treino 900g Power Pro (Sabor Laranja)",
+            "price": 55.60,
+            "description": "O Pré-Treino 900g é perfeito para atletas avançados que buscam máxima performance. Fornece energia, foco e resistência para melhorar o desempenho durante os treinos, com um sabor delicioso de laranja."
           },
           {
             "id": 11,
             "image": "https://img.freepik.com/free-psd/pills-packaging-mock-up_1307-642.jpg?size=626&ext=jpg&ga=GA1.2.2002258790.1695662034&semt=ais",
-            "name": "Pré-Treino 1kg",
-            "price": 69.99
+            "name": "Pré-Treino 900g Night Wolf (Sabor Uva)",
+            "price": 69.99,
+            "description": "O Pré-Treino 900g é perfeito para atletas avançados que buscam máxima performance. Fornece energia, foco e resistência para melhorar o desempenho durante os treinos, com um sabor delicioso de uva."
           }
         
     ]

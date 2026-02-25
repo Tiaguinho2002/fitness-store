@@ -28,3 +28,4 @@ packages/
 # Arquivos de Configuração Local (Sensíveis)
 appsettings.Development.json
 appsettings.Local.json
+appsettings.Production.json

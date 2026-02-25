@@ -1,5 +1,5 @@
 import './banner.scss'
-import minhaImagem from '../../assets/Banner.jpg'
+import minhaImagem from '../../assets/Banner-objetive.jpg'
 
 function banner() {
     return (

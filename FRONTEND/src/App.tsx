@@ -15,6 +15,7 @@ import Creatina from './pages/Creatina';
 import PreTreino from './pages/PreTreino';
 import Glutamina from './pages/Glutamina';
 import Hipercalorico from './pages/Hipercalorico';
+import ProductDetail from './pages/ProductDetail';
 
 
 import Provider from './context/Provider';
@@ -32,6 +33,7 @@ function App() {
           <Content>
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/produto/:id" element={<ProductDetail />} />
               <Route path="/WheyProtein" element={<WheyProtein />} />
               <Route path="/Creatina" element={<Creatina />} />
               <Route path="/preTreino" element={<PreTreino />} />
